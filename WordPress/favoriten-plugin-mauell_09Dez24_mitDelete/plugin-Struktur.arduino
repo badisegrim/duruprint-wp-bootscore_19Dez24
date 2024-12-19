@@ -1,0 +1,11 @@
+favoriten-plugin/
+│
+├── favoriten-plugin.php       // Hauptdatei des Plugins
+├── js/
+│   └── favoriten.js           // JavaScript für Interaktivität
+├── css/
+│   └── favoriten.css          // CSS für Gestaltung
+├── includes/
+│   ├── shortcodes.php         // Shortcode-Definitionen
+│   ├── database.php           // Datenbank-Handling
+└── uninstall.php              // Bereinigung bei Deinstallation

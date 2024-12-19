@@ -1,0 +1,1014 @@
+/*aside button*/
+#sideButton{
+  color: #18ab9f;
+  background-color: transparent;
+  border:none;
+  transition: transform .5s ease-in;
+  }
+  #sideButton:hover{
+  color: #03e6d5;
+  transform: scale(1.3);
+  }
+  /*Kommentar-Bereich ausblenden*/
+  .comments-area {
+      display: none;
+  }
+  /*Fav*/
+  .heart-icon {
+      width: clamp(34px, 3vw, 46px);
+      height: auto;
+      fill: none; /* Keine Füllung im inaktiven Zustand */
+      stroke: #18ab9f; /* Rand im inaktiven Zustand */
+      stroke-width: 50;
+      transition: all 0.3s;
+      position: absolute;
+      z-index: 999;
+      top: 1vw;
+      left: 1vw;
+      filter: drop-shadow(1px 1px 5px rgba(84, 169, 159, 0.5));
+  }
+  .favorite-button {
+      color: red; /* Standardfarbe für den Rahmen */
+      background: none; /* Kein Hintergrund */
+      border: none; /* Keine Ränder um den Button */
+      cursor: pointer;
+  }
+  
+  .favorite-button.active .heart-icon {
+      fill: currentColor; /* Farbe aus der aktuellen Schriftfarbe */
+      stroke: none; /* Entferne den Rahmen im aktiven Zustand */
+      color: red; /* Farbe des Herzens im aktiven Zustand */
+      padding: 0;
+      filter: drop-shadow(1px 1px 5px #B32E2D);
+  }
+  /*Fav Liste*/
+  .favorite-link {
+      text-decoration: none;
+      color: #666666;
+      margin-right: 10px;
+  }
+  
+  .favorite-link:hover {
+      text-decoration: underline;
+    color:#18ab9f;
+  }
+  /* Custom Button Styling Global Bootscore */
+  .btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #18ab9f;
+    --bs-btn-border-color: #16a69a;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #27fcea;
+    --bs-btn-hover-border-color: #18ab9f;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #27fcea;
+    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0d6efd;
+    --bs-btn-disabled-border-color: #0d6efd;
+  }
+  
+  /* Sidebar Overlay */
+  #sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: transparent /*#f8f9fa*/; /* Sidebar Hintergrund */
+    z-index: 1050;
+    transform: translateX(-100%); /* Start außerhalb des Viewports */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  #sidebar-overlay.show {
+    transform: translateX(0); /* Sidebar anzeigen */
+  }
+  
+  #content {
+    margin-left: 0; /* Hauptinhalt immer Vollbreite */
+  }
+  
+  #sidebar-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1100;
+  }
+  
+  body.sidebar-open {
+    overflow: hidden; /* Kein Scrollen bei geöffneter Sidebar */
+  }
+  /* -----dropdown animation------- */
+  @keyframes slide-in-blurred-top {
+    0% {
+      transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+      transform-origin: 50% 0%;
+      filter: blur(40px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0) scaleY(1) scaleX(1);
+      transform-origin: 50% 50%;
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-blurred-left {
+    0% { 
+      transform: translateX(-1000px) scaleX(2.5) scaleY(0.2); transform-origin: 100% 50%; filter: blur(40px); opacity: 0; 
+    } 
+    100% { 
+      transform: translateX(0) scaleY(1) scaleX(1); transform-origin: 50% 50%; filter: blur(0); opacity: 1;
+    } 
+  }
+  /*dynamicVorschauBild Animation für das Ausblenden*/ 
+  @keyframes slide-out-elliptic-left-fwd {
+    0% {
+      transform: translateX(0) rotateY(0) scale(1);
+      transform-origin: -500px 50%;
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-1000px) rotateY(-20deg) scale(6);
+      transform-origin: 200% 50%;
+      opacity: 0;
+    }
+  }
+  
+  .slide-out-elliptic-left-fwd-normal {
+    animation: slide-out-elliptic-left-fwd 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0s 1 normal both;
+  }
+  
+  
+  /* Basiseinstellungen für Dropdowns */
+  .navbar .dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: 90%;
+    transform-origin: top; /* Ursprungspunkt der Animation */
+    display: block;
+    visibility: hidden;
+    opacity: 0; /* Unsichtbar zu Beginn */
+    min-width: 200px;
+    min-height: 210px;
+    border-radius: 0px 0px 9px 9px;
+    border-top: 1px dashed lightgray; 
+  
+  }
+  
+  /* Dropdown anzeigen und animieren */
+  .navbar .dropdown:hover > .dropdown-menu,
+  .navbar .dropdown-menu .dropdown:hover > .dropdown-menu {
+    visibility: visible; /* Dropdown anzeigen */
+    opacity: 1;
+    animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) forwards; /* Animation aktivieren */
+  }
+  
+  /* Kind-Dropdowns */
+  .navbar .dropdown-menu .dropdown-menu {
+    left: 100%; /* Nach rechts verschoben */
+    top: -28%;
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .navbar .dropdown-menu .dropdown:hover > .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    animation: slide-in-blurred-left 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) forwards; /* Gleicher Effekt für Submenus */
+  }
+  /* --------dropdown animation-------- */
+  /*** navbar menü mittig darstellen (sonst rechtsbündig) ***/
+  .navbar-expand-lg .offcanvas {
+      align-items: center;
+    }
+    .navbar-expand-lg {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+  /*** navbar menü mittig darstellen (sonst rechtsbündig) END ***/
+  /* nach oben-btn */
+  a.btn.btn-primary.shadow.position-fixed.zi-1000.top-button.visible {
+      background-color: #10ddcd;
+      box-shadow: 0px 0px 4px 11px #0b1918;
+      border: 1px solid #0f9288;
+  }
+  
+  /*** full-width-Einstellungen ***/
+    .container, .container-fluid {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    
+    .row {
+      margin-left: 5vw!important;
+      margin-right: 5vw!important;
+    }
+    
+    .carousel {
+      width: 100%;
+    }
+    /* Sicherstellen, dass Navbar und Masthead die volle Breite einnehmen */
+      .navbar, #masthead {
+          width: 100%;
+          padding-left: 0;
+          padding-right: 0;
+      }
+  /*** full-width-Einstellungen-END ***/ 
+  
+  body.dark {
+      background-color: #292C35;
+      color: #ffffff;
+  }
+  /*navbar anpassung im darkmode */
+  #masthead.dark {
+    box-shadow: 0px 2px 10px -2px rgba(3,230,213,0.4);
+    background-color: transparent !important;
+  }
+  #masthead.dark:hover {
+    background-color: transparent !important;
+    box-shadow: 0px 2px 10px -2px rgba(3,230,213,0.8);
+  }
+  .sticky-top .bg-body-tertiary .site-header .dark:hover {
+    background-color: transparent !important;
+    box-shadow: 0px 2px 10px -2px rgba(3,230,213,0.8);
+  }
+  
+  body.dark .nav-link {
+      color: rgb(233, 233, 233);
+  }
+  
+  body {
+      margin: 0;
+      height: 100vh;
+  }
+  
+  .navbar-brand img {
+      max-width: 100px; /* Standardgröße */
+      transition: all 0.3s ease;
+  }
+  .me-2 {
+    margin-right: 0 !important;
+    width: 80px;
+  }
+  
+  .navbar.scrolled .navbar-brand img {
+      max-width: 100px; /* Größe bei Scroll */
+  }
+  
+  #masthead {
+      background-color: transparent!important;
+  }
+  
+  #nav-main:hover {
+      background-color: rgba(255, 255, 255, 1) !important;
+      box-shadow: 0px 1px 5px 0px rgba(3,230,213,0.3);
+      transition: background-color 0.3s ease;
+  }
+  
+  .navbar-nav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: nowrap; /* Verhindert das Umbrechen der Items */
+    background-color: transparent;
+  }
+  
+  .navbar-nav .nav-item {
+      margin: 0 10px; /* Abstand zwischen den Menü-Items */
+      white-space: nowrap; /* Verhindert, dass Menü-Items in die nächste Zeile umbrechen */
+  }
+  
+  /*
+  .navbar.scrolled {
+      background-color: rgb(255 255 255 / 48%);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+  }
+  */
+  #nav-main.scrolled {
+      width: 100%;
+      background-color: rgb(255 255 255 / 48%);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;  /* Beispiel für Padding-Anpassung */
+  }
+  
+  
+  
+  #bootscore-navbar li a {
+      font-size: clamp(13px, 1.1vw, 14px);
+      font-weight: lighter; /* Einheitlich für alle Menüeinträge */
+  }
+  
+  
+            /* Flex-Container für zwei Karten nebeneinander */
+            .flipCard-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px; /* Abstand zwischen den Karten */
+                margin: 0 auto;
+            }
+            
+            /* Die Flip-Karten sollen 50% der Breite des Containers einnehmen */
+            .flipCard {
+                width: calc(50% - 40px); /* Jede Karte nimmt 50% des Containers ein, abzüglich des Abstands */
+                max-width: 850px; /* Maximale Breite für große Bildschirme */
+                perspective: 1000px;
+                margin: 10px calc(2vw + 5px); /* Dynamische Zentrierung */
+                position: relative;
+                height: 550px; /* Feste Höhe */
+                /*statt der festen Höhe, später mal überlegen wie man dies optimieren kann
+                zB.max-height: 550px; height: 30vw; */ 
+                filter: drop-shadow(1px 1px 13px #0000002a);
+                
+            }
+            
+            @media (max-width: 768px) {
+                /* Für kleinere Bildschirme, 100% Breite pro Karte */
+                .flipCard {
+                    width: 100%; /* Auf kleineren Bildschirmen 100% Breite */
+                    margin: 10px 0;
+                }
+            }
+            
+            /* Kartenstil bleibt gleich */
+            .card {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                transform-style: preserve-3d;
+                transition: transform 3s;
+                cursor: pointer;filter: drop-shadow(0px 7px 14px rgba(0, 0, 0, 0.5));
+            }
+            
+            /* Weitere Kartenstile wie Front- und Rückseite, Shine-Effekt und SVG */
+            .card.flipped {
+                transform: rotateY(-180deg);
+            }
+            
+            .card-container {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+            }
+            
+            .card-container.front {
+                z-index: 2;
+                transform: rotateY(0deg);
+            }
+            
+            .card-container.back {
+                z-index: 1; 
+                transform: rotateY(-180deg);
+            }
+            
+            .background-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 35px;
+            }
+            
+            .svgFront, .svgBack {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                color: #fff0c2;
+            }
+            
+            /* Shine Layer */
+            .shine-layer {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 3;
+                pointer-events: none;
+                mask-image: linear-gradient(135deg, transparent, transparent, transparent, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), transparent, transparent, transparent);
+                mask-size: 200%;
+                mask-position: 150%;
+                background: rgba(255, 255, 255, 0.4); /* Optional Shine Effect Color */
+                border-radius: 35px;
+                transition: mask-position 1.5s ease-in-out; /* Gleicher Übergang wie der Flip */
+            }
+            
+            /* Shine Animation */
+            @keyframes shine {
+                0% { mask-position: 150%; }
+                50% { mask-position: -50%; }
+                100% { mask-position: 150%; }
+            }
+            /* Style für den Flip-Button */
+            .flip-button {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background-color: #333;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;z-index: 9;
+            }
+            
+            .flip-button:hover {
+                background-color: #555;
+            }
+            
+            /* Icon für den Button */
+            .rotate-icon {
+                font-size: 20px;
+            }
+            /*Kontaktformular auf Rückseite*/
+            /* Füge dies zu deinem CSS hinzu, um sicherzustellen, dass der Kontakt-Button nicht verdeckt wird */
+            .card-title, .contact-button, .contact-form {
+                position: relative;
+                top: -500px;
+                left: 70px;
+            }
+            
+            .contact-button {
+                z-index: 4; /* Setze den z-index hoch, damit der Button nicht verdeckt wird */
+                background-color: #333; /* Grundlegendes Styling bleibt gleich */
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+            
+            .contact-button:hover {
+                background-color: #555;
+            }
+            
+            .contact-form {
+                margin-top: 20px;
+                padding: 20px;
+                background-color: #f9f9f9;
+                border-radius: 10px;
+                text-align: left;
+                    display: block;
+                    position: relative;
+                    z-index: 5;
+                    width: 80%;
+            }
+            
+            .contact-form h4 {
+                margin-bottom: 10px;
+            }
+            
+            .contact-form label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+            
+            .contact-form input[type="email"],
+            .contact-form textarea {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                font-size: 14px;
+            }
+            
+            .contact-form button[type="submit"] {
+                padding: 10px 20px;
+                background-color: #28a745;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            
+            .contact-form button[type="submit"]:hover {
+                background-color: #218838;
+            }
+            
+            /***flipcart*Ende**/
+            /***Elemente auf Startseite****/
+            .startBilder:hover img {
+              transform: scale(1.5);transition: transform 0.8s ease-in; /* Zoomt das Bild um 20% heran */
+            }
+            
+            
+              /*** contact-form vorschaubilder ***/
+            /* CSS mit Browser-Präfixen für maximale Kompatibilität */
+    
+            /*neu 20Nov24: der css-part zur js-funktion, um die vorschaubild-formular-karten wahlweise 2-, 3- und 4-Spaltig darzustellen  */
+    
+            button.btn.btn-primary.change-layout {
+            background-color: rgba(255, 255, 255, 0.2);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            color: #54A99F;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: clamp(11px, 1vw, 16px);
+            width: max-content;
+            border: 1px solid #18ab9f;
+            box-shadow: 1px 1px 5px #18ab9f;
+            }
+    
+            button.btn.btn-primary.change-layout:hover {
+                background-color: #03e6d5;
+                border: 1px solid #05938C;
+                color: #fff;
+                font-weight: bold;
+                -webkit-backdrop-filter: blur(12px); /* Safari */
+                backdrop-filter: blur(12px);
+                box-shadow: none;
+            }
+            
+             
+            .col-custom {
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .product-container.columns-1 .col-custom {
+      width: 100%;
+    }
+    
+    .product-container.columns-2 .col-custom {
+      width: 50%;
+    }
+    
+    .product-container.columns-3 .col-custom {
+      width: 33.33%;
+    }
+    
+    .product-container.columns-4 .col-custom {
+      width: 25%;
+    }
+    
+            .card-title2 {
+                font-weight: 100;
+                text-transform: uppercase;
+                font-size: clamp(1rem, 2vw + 1rem, 1.5rem);
+                margin-top: 2vw;
+            }
+            
+            .card-undertitle2 {
+                font-weight: 200;
+                font-size: clamp(.8rem, 1vw + 1rem, 1.3rem);
+                padding-bottom: clamp(2px, .5vw, 15px) !important;
+                margin-top: clamp(-10px, -2vw, 0px) !important;
+            }
+            
+            .card2 {
+                position: relative;
+                text-align: center;
+            }
+            
+            .image-container2 {
+                position: relative;
+                width: 100%;
+                height: auto;
+                z-index: 1;
+                border-radius: 1vw;
+                overflow: hidden;
+                border: 1px solid #57000042;
+                box-shadow: 0px 1px 10px #6701017a;
+            }
+            
+            .vorschau {
+                width: 100%;
+                height: auto;
+                transition: transform 0.8s ease-in;
+          margin-top: -6%; /***um offenen Flächen zu vermeiden***/
+  
+            }
+            
+            /*** Bild skalieren, um offenen Flächen zu vermeiden ***/
+            .image-container2 .vorschau {
+                transform: scale(1.1);
+            }
+            
+            .image-container2:hover .vorschau {
+                transform: scale(1.5);
+            }
+            
+            /* Button zum Öffnen des Formulars */
+            .open-form-button2 {
+                background-color: rgba(255, 255, 255, 0.2);
+                -webkit-backdrop-filter: blur(12px); /* Safari */
+                backdrop-filter: blur(12px);
+                color: #353535;
+                font-weight: 500;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                padding: 10px 20px;
+                font-size: clamp(11px, 1vw, 16px);
+                width: max-content;
+                border: 1px solid #18ab9f;
+                box-shadow: 1px 1px 5px #18ab9f;
+                z-index: 2;
+                position: absolute;
+                left: 50%;
+                bottom: 2vw;
+                transform: translateX(-50%);
+            }
+            
+            .open-form-button2:hover {
+                background-color: white;
+                color: #18ab9f;
+                font-weight: bold;
+                -webkit-backdrop-filter: blur(12px); /* Safari */
+                backdrop-filter: blur(12px);
+                box-shadow: none;
+            }
+            
+            /* Kategorie-Button */
+            .category-button2 {
+                background-color: #18ab9f;
+                color: white;
+                padding-top: clamp(2px, .5vw, 10px);
+                padding-bottom: clamp(2px, .5vw, 10px);
+                padding-right: clamp(2px, .5vw, 10px);
+                padding-left: clamp(2px, .5vw, 10px);
+                text-decoration: none;
+                font-size: clamp(11px, 1vw, 16px);
+                border-radius: 5px;
+                position: absolute;
+                top: 1vw;
+                right: 1vw;
+                z-index: 2;
+            }
+            
+            .category-button2:hover {
+                background-color: #03e6d5;
+            }
+            
+            /* Kontaktformular */
+            .contact-form2 {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .form-container2 {
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+            background-color: #ffffff7a;
+            backdrop-filter: blur(18px);
+            top: 10vw;
+            -webkit-backdrop-filter: blur(18px);
+            font-weight: 500;
+            box-shadow: 1px 1px 5px #18ab9f80;
+            border-radius: 15px;
+        }
+            /*Styles zur Änderung der Checkbox- und Radio-Bottun-Color*/
+            /* Für Checkboxen */
+            .fZustimmungLabel2 {
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+          padding-left: 30px;
+          font-size: 16px;
+          user-select: none;
+          color: black;
+        }
+        
+        .fZustimmungInput2 {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
+        
+        .fZustimmungLabel2 .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 20px;
+          width: 20px;
+          /*background-color: #eee;*/
+          border-radius: 4px; /* Macht die Checkbox leicht abgerundet */
+          border: 1px solid #1CC4B6;
+        }
+        
+        .fZustimmungInput2:checked ~ .checkmark {
+          background-color: #1CC4B6;
+        }
+        
+        .fZustimmungLabel2 .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
+        
+        .fZustimmungInput2:checked ~ .checkmark:after {
+          display: block;
+        }
+        
+        .fZustimmungLabel2 .checkmark:after {
+          left: 7px;
+          top: 3px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 3px 3px 0;
+          transform: rotate(45deg);
+        }
+        
+        /* Für Radio Buttons (falls benötigt) */
+        /* Für Radio Buttons */
+        .custom-radio {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          cursor: pointer;
+          padding-left: 30px;
+          font-size: 16px;
+          user-select: none;
+        }
+        
+        .custom-radio input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
+        
+        .custom-radio .radio-mark {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          height: 20px;
+          width: 20px;
+          background-color: #fff;
+          border-radius: 50%;
+          border: 1px solid gray;
+        }
+        
+        .custom-radio input:checked ~ .radio-mark {
+          border: 2px solid #097369;
+          background-color: #06ab9b;
+        }
+        
+        .custom-radio .radio-mark:after {
+        content: "" !important;
+        font-size: 30px;
+        font-weight: 900;
+        color: #2CC4B6;
+        -webkit-text-stroke: 1px #0e7c72;
+        position: absolute;
+        display: none;
+        }
+        
+        .custom-radio input:checked ~ .radio-mark:after {
+          display: block;
+        }
+        
+        .custom-radio .radio-mark:after {
+          top: -27%;
+          left: 29%;
+          width: 10px;
+          height: 10px;
+          /*background: white;*/
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+        }
+        
+        /*Ende Styles zur Änderung der Checkbox- und Radio-Bottun-Color*/
+            .contact-form2 input:not(.fZustimmungInput2):not(.formFiledInputs2) {
+                width: 100%;
+                padding: 2px;
+                border-radius: 5px;
+                position: relative;
+                border: 1px solid #ccc;
+                font-size: clamp(1rem, .5vw + .7rem, 1rem);
+                background-color: white;
+                margin-top: 2px;
+                margin-bottom: 2px;
+            }
+            
+            .contact-form2 textarea,
+            .contact-form2 select {
+                width: 100%;
+                padding: 2px;
+                border-radius: 5px;
+                position: relative;
+                border: 1px solid #ccc;
+                font-size: clamp(1rem, .5vw + .7rem, 1rem);
+                background-color: white;
+                margin-top: 2px;
+                margin-bottom: 2px;
+            }
+            .contact-form2 label:not(.fEmail2Label):not(.message2Label):not(.datei2Label):not(.fHochladen):not(.fZustimmungLabel2) {
+                display: block;
+                font-weight: lighter;
+                color: black;
+                font-size: clamp(.6rem, .4vw + .6rem, .8rem);
+                text-align: left;
+                margin-left: 5px;
+                width: 30%;
+            }
+            .fZustimmung {
+                font-size: clamp(.6rem, .4vw + .6rem, .8rem);
+                color: gray;
+                margin-top: 5px;
+            }
+        
+            .fZustimmungInput2 {
+                width: 5%;
+            }
+            .fEmail2Label, .message2Label {
+                text-align: left !important;
+                display: block;
+            }
+            .datei2Label{
+                width: 50%;
+            }
+            .fHochladen{
+                width: 76%;
+            }
+            .formHeader {
+                font-size: clamp(11px, 2vw, 16px);
+                margin: .5vw 0;
+                font-weight: 400;
+            }
+            
+            .fileUpload2Radios {
+                display: inline-flex;
+                position: relative;
+                align-items: center;
+                width: 60%;
+            }
+            .fZustimmung, .fUpload, .fVeredelung, .fFarbe, .fDruck, .fPapier, .fAuflage, .fAusfuehrung {
+                display: flex;
+                align-items: center;
+                text-align: left;
+            }
+            .fUpload {
+                border: 1px dashed gray;
+                padding: 5px 2px 5px 10px;
+                margin: 5px 0;
+                border-radius: 5px;
+            }
+    
+        .fileUploadContainer2 {
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+        }
+            /* Buttons im Formular */
+            .button-container2 {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 5px;
+                width: 100%;
+            }
+            
+            .submit-button2,
+            .contact-button2 {
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 5px;
+                cursor: pointer;
+                border: none;
+            }
+            
+            .submit-button2 {
+                background-color: #1CC4B6;
+                width: 40%;
+                color: white;
+            }
+            
+            .submit-button2:hover {
+                background-color: #03e6d5;
+                border: 1px solid #05938C;
+            }
+            
+            .contact-button2 {
+                background-color: rgba(255, 255, 255, 0.2);
+                -webkit-backdrop-filter: blur(12px); /* Safari */
+                backdrop-filter: blur(12px);
+                color: #353535;
+                font-weight: 500;
+                border: 1px solid #18ab9f;
+                box-shadow: 1px 1px 5px #18ab9f;
+                width: 60%;
+            }
+            
+            .contact-button2:hover {
+                background-color: white;
+                color: #18ab9f;
+                font-weight: bold;
+                -webkit-backdrop-filter: blur(12px); /* Safari */
+                backdrop-filter: blur(12px);
+                box-shadow: none;
+            }
+            
+            /* Zusätzliche Änderungen zur besseren mobilen Kompatibilität */
+            @media screen and (max-width: 768px) {
+                .card2 {
+                    padding: 10px;
+                }
+                .contact-form2 {
+                    max-width: 90%;
+                }
+                .button-container2 {
+                    flex-direction: row;
+                }
+                    .open-form-button2 {
+                  bottom: 10px; /* Abstand für kleinere Bildschirme anpassen */
+                }
+            }
+    
+  /* Zusätzliche Änderungen zur besseren mobilen Kompatibilität */
+  @media screen and (max-width: 600px) {
+    .form-container2 {
+      position: relative;
+      width: 110%;
+      z-index: 10;
+      background-color: #ffffff70;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 1px 1px 5px #18ab9f80;
+      border-radius: 10px;
+      top: 1vh;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .heart-icon {
+      width: 5vw;
+      }
+      .vorschau {
+        margin-top: -8%; /***um offenen Flächen zu vermeiden***/
+    }
+  }
+            
+       .card2 {
+      container-type: inline-size; /* Aktiviert Container Queries */
+    }
+    
+    @container (min-width: 300px) and (max-width: 400px) {
+      .card2 h2 {
+        font-size: 1em;
+      }
+    
+      .card2 p {
+        font-size: .8em;
+      }
+    }
+    
+    @container (min-width: 401px) and (max-width: 500px) {
+      .card2 h2 {
+        font-size: 1.2em;
+      }
+    
+      .card2 p {
+        font-size: 1em;
+      }
+    }
+    
+    @container (min-width: 501px) and (max-width: 800px) {
+      .card2 h2 {
+        font-size: 1.4em;
+      }
+    
+      .card2 p {
+        font-size: 1.2em;
+      }
+    }
+    
+    @container (min-width: 801px) {
+      .card2 h2 {
+        font-size: 1.6em;
+      }
+    
+      .card2 p {
+        font-size: 1.3em;
+      }
+    }
+    

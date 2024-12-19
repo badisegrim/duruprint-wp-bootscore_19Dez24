@@ -1,0 +1,28 @@
+.carousel-item {
+    background-size: contain; /* Verhindert Verzerrungen */
+    background-repeat: no-repeat;
+    background-position: center;
+    height: auto; /* Dynamische Höhe */
+}
+.foreground-container {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+}
+.foreground-image {
+    max-width: 150px;
+    max-height: 150px;
+    display: block;
+    margin-bottom: 15px;
+}
+.text-content h2 {
+    font-size: 2rem;
+    color: white;
+}
+.text-content p {
+    color: white;
+}
+.text-content a {
+    color: white;
+    text-decoration: underline;
+}

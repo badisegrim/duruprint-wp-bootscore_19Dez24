@@ -1,0 +1,64 @@
+.carousel-item {
+    background-size: contain; /* Bild skalieren, um vollständig sichtbar zu sein */
+    background-repeat: no-repeat;
+    background-position: center;
+    height: auto; /* Automatische Höhe */
+    display: flex; /* Zentriert Inhalte wie Text */
+    align-items: center;
+    justify-content: center;
+}
+
+.foreground-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+}
+.text-content .btn {
+    margin-top: 20px;
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.text-content .btn:hover {
+    background-color: #0056b3;
+}
+
+.text-content h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    animation: fade-in 1s ease-in-out;
+}
+
+.text-content p {
+    font-size: 1.25rem;
+    color: #ddd;
+    animation: slide-up 1.5s ease-in-out;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

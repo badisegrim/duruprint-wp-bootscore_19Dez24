@@ -1,0 +1,19 @@
+.favorite-button {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.favorite-item {
+    padding: 0px 0px 2px 0px;
+}
+.favorite-list {
+    margin: 20px 0;
+}
+.favBox {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+}

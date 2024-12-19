@@ -1,0 +1,9 @@
+custom-fullwidth-slider/
+├── assets/
+│   ├── css/
+│   │   ├── slider-frontend-styles.css
+│   │   ├── slider-admin-styles.css
+│   ├── js/
+│   │   ├── slider-admin-scripts.js
+│   │   ├── slider-frontend-scripts.js
+├── custom-fullwidth-slider.php

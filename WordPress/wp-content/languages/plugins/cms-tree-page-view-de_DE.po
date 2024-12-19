@@ -1,0 +1,379 @@
+# Translation of Plugins - CMS Tree Page View - Stable (latest release) in German
+# This file is distributed under the same license as the Plugins - CMS Tree Page View - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-05-01 21:13:44+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.4\n"
+"Language: de\n"
+"Project-Id-Version: Plugins - CMS Tree Page View - Stable (latest release)\n"
+
+#: functions.php:1160
+msgid "Edit in Elementor"
+msgstr "Mit Elementor bearbeiten"
+
+#. Author URI of the plugin
+msgid "https://jonchristopher.us/"
+msgstr "https://jonchristopher.us/"
+
+#. Author of the plugin
+msgid "Jon Christopher"
+msgstr "Jon Christopher"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/jchristopher/cms-tree-page-view"
+msgstr "https://github.com/jchristopher/cms-tree-page-view"
+
+#. Description of the plugin
+msgid "Adds a CMS-like tree view of all your pages, like the view often found in a page-focused CMS. Use the tree view to edit, view, add pages and search pages (very useful if you have many pages). And with drag and drop you can rearrange the order of your pages. Page management won't get any easier than this!"
+msgstr "Ermöglicht eine Baumansicht für alle Seiten wie man es oft in seitenorientieren CMS findet. Benutze den Seitenbaum zum Anzeigen, Bearbeiten, Hinzufügen und Suchen von Seiten (sehr hilfreich bei komplexen Seitenstrukturen). Die Seiten können per Drag & Drop neu geordnet werden. Seitenmanagement kann nicht einfacher sein!  "
+
+#. Plugin Name of the plugin
+msgid "CMS Tree Page View"
+msgstr "CMS Tree Page View"
+
+#: functions.php:1850
+msgid "Please see the <a href=\"%1$s\">support forum</a> for help."
+msgstr "Bitte benutze bei Problemen das <a href=\"%1$s\">Support-Forum</a>."
+
+#: functions.php:1849
+msgid "Support"
+msgstr "Hilfe/Support"
+
+#: functions.php:1846
+msgid "<a href=\"%1$s\">Post a nice tweet</a> or make a nice blog post about the plugin"
+msgstr "<a href=\"%1$s\">Schreibe einen netten Tweet</a> oder einen netten Blog-Beitrag über das Plugin"
+
+#: functions.php:1845
+msgid "<a href=\"%1$s\">Give a donation</a> – any amount will make me happy"
+msgstr "<a href=\"%1$s\">Spende etwas</a> – jeder Betrag macht mich glücklich"
+
+#: functions.php:1844
+msgid "<a href=\"%1$s\">Give it a nice review</a> over at the WordPress Plugin Directory"
+msgstr "<a href=\"%1$s\">Schreibe eine positive Bewertung</a> im Plugin-Verzeichnis von WordPress"
+
+#: functions.php:1842
+msgid "There are serveral ways for you to show your appreciation:"
+msgstr "Es gibt verschiedene Wege, mir deine Anerkennung zu zeigen:"
+
+#: functions.php:1841
+msgid "I like this plugin<br>– how can I thank you?"
+msgstr "Mir gefällt dieses Plugin<br>Wie kann ich helfen?"
+
+#: functions.php:1839
+msgid "/Pär Thernström - plugin creator"
+msgstr "/Pär Thernström - Plugin-Autor"
+
+#: functions.php:1838
+msgid "Hi there! I just wanna says thanks for using my plugin. I hope you like it as much as I do."
+msgstr "Hallo! Ich möchte nur Danke sagen für die Verwendung meines Plugins. Ich hoffe es gefällt dir genauso wie mir."
+
+#: functions.php:1836
+msgid "Thanks for using my plugin"
+msgstr "Danke, dass du dieses Plugin verwendest"
+
+#: functions.php:1514
+msgctxt "comment count"
+msgid "%"
+msgstr "%"
+
+#: functions.php:1514
+msgctxt "comment count"
+msgid "1"
+msgstr "1"
+
+#: functions.php:1514
+msgctxt "comment count"
+msgid "0"
+msgstr "0"
+
+#: functions.php:1504
+msgid "%s pending"
+msgstr "%s offen"
+
+#: functions.php:1497
+msgid "Comments"
+msgstr "Kommentare"
+
+#: functions.php:1464
+msgid "<Untitled page>"
+msgstr "<Unbenannte Seite>"
+
+#: functions.php:1456
+msgid "Unknown user"
+msgstr "Unbekannter Benutzer"
+
+#: functions.php:1278
+msgctxt "headline of page with tree"
+msgid "%1$s Tree View"
+msgstr "%1$s Baumstruktur"
+
+#: functions.php:1236
+msgid "Page ID"
+msgstr "Seiten-ID"
+
+#: functions.php:1233
+msgid "by"
+msgstr "von"
+
+#: functions.php:1231
+msgid "Last modified"
+msgstr "Zuletzt modifiziert"
+
+#: functions.php:1221
+msgid "cancel"
+msgstr "Abbrechen"
+
+#: functions.php:1220
+msgid "or"
+msgstr "oder"
+
+#: functions.php:1219
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: functions.php:1215
+msgid "Submit for Review"
+msgstr "Zur Überprüfung einreichen"
+
+#: functions.php:1215
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#: functions.php:1214
+msgid "Draft"
+msgstr "Entwurf"
+
+#: functions.php:1213
+msgid "Status"
+msgstr "Status"
+
+#: functions.php:1206
+msgid "Position"
+msgstr "Position"
+
+#: functions.php:1201
+msgid "Enter title here"
+msgstr "Titel der neuen Seite eingeben"
+
+#: functions.php:1196
+msgid "Add page(s)"
+msgstr "Seite(n) hinzufügen"
+
+#: functions.php:1179
+msgid "Can not create page inside of a page with draft status"
+msgstr "Es kann keine Seite innerhalb einer Seite mit Entwurfs-Status erstellt werden."
+
+#: functions.php:1175 functions.php:1208
+msgid "Inside"
+msgstr "Innerhalb"
+
+#: functions.php:1170 functions.php:1207
+msgid "After"
+msgstr "Danach"
+
+#: functions.php:1146
+msgid "Loading tree"
+msgstr "Baum wird geladen"
+
+#: functions.php:1143
+msgid "Search: no pages found"
+msgstr "Suche: Keine Seiten gefunden"
+
+#: functions.php:1138
+msgid "Loading..."
+msgstr "Wird geladen …"
+
+#: functions.php:1131
+msgid "Nothing found."
+msgstr "Keine Inhalte gefunden."
+
+#: functions.php:1130
+msgid "Searching..."
+msgstr "Wird gesucht..."
+
+#: functions.php:1129
+msgid "Search"
+msgstr "Suchen"
+
+#: functions.php:1128
+msgid "Clear search"
+msgstr "Suche leeren"
+
+#: functions.php:1120
+msgid "Collapse"
+msgstr "Einklappen"
+
+#: functions.php:1119
+msgid "Expand"
+msgstr "Ausklappen"
+
+#: functions.php:1111
+msgid "Trash"
+msgstr "Papierkorb"
+
+#: functions.php:1106
+msgid "Public"
+msgstr "Öffentlich"
+
+#: functions.php:1101
+msgid "All"
+msgstr "Alle"
+
+#: functions.php:849
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: functions.php:830
+msgid "On post overview screen"
+msgstr "In der Beitrags-Übersicht"
+
+#: functions.php:826
+msgid "In menu"
+msgstr "Im Menü"
+
+#: functions.php:822
+msgid "On dashboard"
+msgstr "Im Dashboard"
+
+#: functions.php:772
+msgid "Select where to show a tree for pages and custom post types"
+msgstr "Wähle aus, wo eine Baumansicht für Seiten und Individuelle Inhaltstypen angezeigt werden soll"
+
+#: functions.php:766
+msgid "settings"
+msgstr "Einstellungen"
+
+#: functions.php:744
+msgctxt "title on page with tree"
+msgid "%1$s Tree View"
+msgstr "%1$s Baumstruktur"
+
+#: functions.php:743
+msgctxt "name in menu"
+msgid "Tree View"
+msgstr "Baumstruktur"
+
+#: functions.php:700
+msgctxt "name of dashboard"
+msgid "%1$s Tree"
+msgstr "%1$s Baumstruktur"
+
+#: functions.php:658
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: functions.php:622
+msgid "List View"
+msgstr "Listenansicht"
+
+#: functions.php:613
+msgid "Tree View"
+msgstr "Baumstruktur"
+
+#: functions.php:534 functions.php:1854
+msgid "Hide until next upgrade"
+msgstr "Bis zum nächsten Update verstecken"
+
+#: functions.php:403 functions.php:1248
+msgid "No posts found."
+msgstr "Es wurden keine Beiträge gefunden."
+
+#: functions.php:402
+msgid "Adding ..."
+msgstr "Seite wird hinzugefügt…"
+
+#: functions.php:401
+msgid "Adding page..."
+msgstr "Seite wird hinzugefügt..."
+
+#: functions.php:400
+msgid "Password protected page"
+msgstr "Passwortgeschützte Seite"
+
+#: functions.php:393 functions.php:399
+msgid "trash"
+msgstr "In den Papierkorb verschieben"
+
+#: functions.php:392 functions.php:398
+msgid "private"
+msgstr "Privat"
+
+#: functions.php:391 functions.php:397 functions.php:1507
+msgid "pending"
+msgstr "ausstehend"
+
+#: functions.php:390 functions.php:396
+msgid "protected"
+msgstr "Geschützt"
+
+#: functions.php:389 functions.php:395
+msgid "future"
+msgstr "Geplant"
+
+#: functions.php:388 functions.php:394
+msgid "draft"
+msgstr "Entwurf"
+
+#: functions.php:387 functions.php:1175
+msgid "Add new page inside"
+msgstr "Eine neue Seite innerhalb dieser hinzufügen"
+
+#: functions.php:386
+msgid "Sorry, can't create a page after a page with status \"trash\"."
+msgstr "Entschuldigung, es kann keine Seite nach einer Seite mit dem Status \"Papierkorb\" hinzugefügt werden."
+
+#: functions.php:385
+msgid "Sorry, can't create a sub page to a page with status \"trash\"."
+msgstr "Entschuldigung, es kann keine Unterseite zu einer Seite mit dem Status \"Papierkorb\" hinzugefügt werden."
+
+#: functions.php:384
+msgid "Sorry, can't create a sub page to a page with status \"draft\"."
+msgstr "Entschuldigung, es kann keine Unterseite zu einer Seite mit dem Status \"Entwurf\" hinzugefügt werden."
+
+#: functions.php:383
+msgid "inside"
+msgstr "Innerhalb"
+
+#: functions.php:382
+msgid "after"
+msgstr "Danach"
+
+#: functions.php:381 functions.php:1170
+msgid "Add new page after"
+msgstr "Eine neue Seite nach dieser hinzufügen"
+
+#: functions.php:380
+msgid "Add page"
+msgstr "Seite hinzufügen"
+
+#: functions.php:379 functions.php:1162
+msgid "View"
+msgstr "Anzeigen"
+
+#: functions.php:378 functions.php:1158
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: functions.php:377 functions.php:1162
+msgid "View page"
+msgstr "Seite anzeigen"
+
+#: functions.php:376 functions.php:1158
+msgid "Edit page"
+msgstr "Seite bearbeiten"
+
+#: functions.php:375
+msgid "child pages"
+msgstr "untergeordnete Seiten"
+
+#: functions.php:374
+msgid "Enter title of new page"
+msgstr "Titel der neuen Seite eingeben"
+
+#: functions.php:115 functions.php:162 functions.php:1609
+msgid "Cheatin&#8217; uh?"
+msgstr "Schummeln, was?"

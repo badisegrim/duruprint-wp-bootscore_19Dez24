@@ -1,0 +1,14 @@
+.custom-slider-slide {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #f9f9f9;
+}
+.custom-slider-slide h4 {
+    margin-top: 0;
+}
+.remove-slider-slide {
+    margin-top: 10px;
+    color: #d9534f;
+    cursor: pointer;
+}

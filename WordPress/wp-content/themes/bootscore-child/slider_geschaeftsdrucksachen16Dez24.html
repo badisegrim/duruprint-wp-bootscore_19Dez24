@@ -1,0 +1,373 @@
+<div class="slider topStart">
+    <!-- Links-Pfeil -->
+  <div class="slider-arrow left-arrow">&#8249;</div>
+    <!-- Slides1 -->
+    <div class="slide">
+      <!-- Hintergrundbild -->
+      <div class="slider-element1" style="background-image: url('http://neu.duruprint.de/wp-content/uploads/2024/12/visiteBg_1920x1080_40Pro.webp');"></div>
+  
+      <!-- Vordergrundbild (falls vorhanden) -->
+      <img class="slider-element2" src="http://neu.duruprint.de/wp-content/uploads/2024/12/viste2_l_800x520_72ppi_40Pro.webp" alt="Foreground Image">
+  
+      <!-- Textblock -->
+      <div class="text-block right">
+        <h2 class="slider-element3">Wenn es schnell gehen muss</h2>
+        <p class="slider-element4">ohne auf Premium-Qualität zu verzichten</p>
+      </div>
+  
+      <!-- Button -->
+      <a href="#" class="slider-element5">Jetzt Zeit sparen...</a>
+    </div>
+    <!-- Slides2 -->
+    <div class="slide">
+        <!-- Hintergrundbild -->
+        <div class="slider-element1" style="background-image: url('http://neu.duruprint.de/wp-content/uploads/2024/12/graficDesktop_1920x1080_40Pro.webp');"></div>
+    
+        <!-- Vordergrundbild (falls vorhanden) -->
+    
+        <!-- Textblock -->
+        <div class="text-block">
+          <h2 class="slider-element3">Seit über 50 Jahren vereinen wir Kompetenz, Qualität und Zuverlässigkeit</h2>
+          <p class="slider-element4">Nehmen Sie jetzt unsere unverbindliche Beratung in Anspruch</p>
+        </div>
+    
+        <!-- Button -->
+        <a href="#" class="slider-element5">Kontakt...</a>
+    </div>
+    <!-- Slides3 -->
+    <div class="slide">
+        <!-- Hintergrundbild -->
+        <div class="slider-element1" style="background-image: url('http://neu.duruprint.de/wp-content/uploads/2024/12/woodBg_1920x1080_40Pro.webp');"></div>
+    
+        <!-- Vordergrundbild (falls vorhanden) -->
+        <img class="slider-element2 vertical" src="http://neu.duruprint.de/wp-content/uploads/2024/12/menuCoff_l_520x800_72ppi_40Pro.webp" alt="Foreground Image">
+    
+        <!-- Textblock -->
+        <div class="text-block right">
+          <h2 class="slider-element3">Präzise gedruckt, schnell geliefert</h2>
+          <p class="slider-element4">Ihre Express-Lösung in Top-Qualität</p>
+        </div>
+    
+        <!-- Button -->
+        <a href="#" class="slider-element5">Entfesseln Sie Ihr Potential...</a>
+    </div>
+    <!-- Slides4 -->
+    <div class="slide">
+        <!-- Hintergrundbild -->
+        <div class="slider-element1" style="background-image: url('http://neu.duruprint.de/wp-content/uploads/2024/12/visiteBg2_1920x1080_40Pro.webp');"></div>
+    
+        <!-- Vordergrundbild (falls vorhanden) -->
+        <img class="slider-element2" src="http://neu.duruprint.de/wp-content/uploads/2024/12/viste3_l_800x520_72ppi_40Pro.webp" alt="Foreground Image">
+    
+        <!-- Textblock -->
+        <div class="text-block right">
+          <h2 class="slider-element3">Ihre Zeit ist kostbar</h2>
+          <p class="slider-element4">wir liefern hochwertige Drucksachen im Handumdrehen</p>
+        </div>
+    
+        <!-- Button -->
+        <a href="#" class="slider-element5">Jetzt Umsatz steigern...</a>
+    </div>
+    <!-- Slides5 -->
+    <div class="slide">
+        <!-- Hintergrundbild -->
+        <div class="slider-element1" style="background-image: url('http://neu.duruprint.de/wp-content/uploads/2024/12/plot_1920x1080_40Pro.webp');"></div>
+    
+        <!-- Vordergrundbild (falls vorhanden) -->
+     
+        <!-- Textblock -->
+        <div class="text-block">
+          <h2 class="slider-element3">Wenn jede Minute zählt</h2>
+          <p class="slider-element4">Premium-Drucklösungen sofort verfügbar</p>
+        </div>
+    
+        <!-- Button -->
+        <a href="#" class="slider-element5">Jetzt Top-Angebot sichern...</a>
+    </div>
+    <!-- Rechts-Pfeil -->
+    <div class="slider-arrow right-arrow">&#8250;</div>
+</div>
+<style>
+   /* Pfeile */
+   .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10rem;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 15;
+}
+
+.left-arrow {
+  left: 20px;
+}
+
+.right-arrow {
+  right: 20px;
+}
+
+/* Pfeile werden bei Hover auf dem Slider eingeblendet */
+.slider:hover .slider-arrow {
+  opacity: 1;
+}
+
+/* Allgemeine Stile für den Slider */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0; /* Slides starten unsichtbar */
+}
+
+.slide.active {
+  opacity: 1; /* Aktives Slide sichtbar */
+  z-index: 10;
+}
+
+/* Hintergrundbild (SliderElement1) */
+.slider-element1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Vordergrundbild (SliderElement2) */
+.slider-element2 {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;/* Verschiebung nach links */
+  width: 30vw;
+  max-width: 30vw;
+  height: auto;
+  z-index: 2;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.slider-element2.vertical {
+  bottom: 5%;
+  width: 18vw;
+  left: 15%;/* Verschiebung nach links */
+}
+
+/* Textblock (SliderElement3 und SliderElement4) */
+.slider-element3 {
+  font-size: 2vw;
+  font-weight: bold;
+}
+.slider-element4 {
+  font-size: 1.5vw;
+  font-weight: normal;
+}
+.text-block {
+  text-align: center;
+  position: absolute;
+  bottom: 40%;
+  z-index: 3;
+  background-color: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+  padding: 2vw;
+  border: 1px solid white;
+  border-radius: 11px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+  /* Animationseffekte */
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}
+
+.text-block.right {
+  right: 20%; /* Rechts positioniert */
+  text-align: left;
+}
+
+/* Sichtbare Textblöcke */
+.slide.active .text-block {
+  opacity: 1;
+  transform: translateY(0);
+}
+.slider-element3, .slider-element4 {
+  margin: 10px 0;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+  color:white;
+}
+
+/* Button (SliderElement5) */
+.slider-element5 {
+    font-size: clamp(11px, 1vw, 16px);
+    border: 1px solid #18ab9f;
+    box-shadow: 1px 1px 5px #18ab9f;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #18ab9f;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = document.querySelectorAll(".slide");
+  const leftArrow = document.querySelector(".left-arrow");
+  const rightArrow = document.querySelector(".right-arrow");
+  const slider = document.querySelector(".slider");
+  let currentIndex = 0;
+  let slideInterval;
+
+  // Funktion: Zeige Slide
+  function showSlide(index) {
+    slides.forEach((slide) => {
+      // Aktuelles Slide ausblenden
+      slide.classList.remove("active");
+      slide.querySelector(".slider-element1").style.opacity = 0;
+
+      const fgImage = slide.querySelector(".slider-element2");
+      if (fgImage) {
+        fgImage.style.opacity = 0;
+        fgImage.style.transform = "translateX(100%)";
+      }
+
+      slide.querySelectorAll(".slider-element3, .slider-element4").forEach((el) => {
+        el.style.opacity = 0;
+        el.style.transform = "translateY(-50%)";
+      });
+
+      slide.querySelector(".slider-element5").style.opacity = 0;
+    });
+
+    // Neues Slide aktivieren
+    const newSlide = slides[index];
+    newSlide.classList.add("active");
+
+    // Elemente animieren
+    const bg = newSlide.querySelector(".slider-element1");
+    const fgImage = newSlide.querySelector(".slider-element2");
+    const textElements = newSlide.querySelectorAll(".slider-element3, .slider-element4");
+    const textBlocks = newSlide.querySelectorAll(".text-block");
+    const button = newSlide.querySelector(".slider-element5");
+
+    // Hintergrundbild (SliderElement1)
+    setTimeout(() => (bg.style.opacity = 1), 100);
+
+    // Vordergrundbild (SliderElement2)
+    if (fgImage) {
+      setTimeout(() => {
+        fgImage.style.opacity = 1;
+        fgImage.style.transform = "translateX(0)";
+      }, 300);
+    }
+
+    // Textblock (SliderElement3 und SliderElement4)
+    textElements.forEach((el, i) => {
+      setTimeout(() => {
+        el.style.opacity = 1;
+        el.style.transform = "translateY(0)";
+      }, 500 + i * 200);
+    });
+
+    // Textblock Bg
+    textBlocks.forEach((el, i) => {
+      setTimeout(() => {
+        el.style.opacity = 1;
+        el.style.transform = "translateY(0)";
+      }, 150);
+    });
+
+    // Button (SliderElement5)
+    setTimeout(() => (button.style.opacity = 1), 1200);
+  }
+
+  // Startet den automatischen Slider
+  function startAutoSlide() {
+    slideInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }, 25000); // Wechsel alle 5 Sekunden
+  }
+
+  // Stoppt den automatischen Slider
+  function stopAutoSlide() {
+    clearInterval(slideInterval);
+  }
+
+  // Event Listener für die Pfeilnavigation
+  leftArrow.addEventListener("click", () => {
+    currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+    showSlide(currentIndex);
+    stopAutoSlide(); // Automatischen Wechsel neu starten
+    startAutoSlide();
+  });
+
+  rightArrow.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+    stopAutoSlide(); // Automatischen Wechsel neu starten
+    startAutoSlide();
+  });
+
+  // Pfeile nur bei Hover sichtbar machen
+  slider.addEventListener("mouseenter", () => {
+    // Stoppt den automatischen Wechsel
+    stopAutoSlide();
+
+    // Pfeile sichtbar machen
+    leftArrow.style.opacity = "1";
+    rightArrow.style.opacity = "1";
+  });
+
+  slider.addEventListener("mouseleave", () => {
+    // Startet den automatischen Wechsel
+    startAutoSlide();
+
+    // Pfeile wieder ausblenden
+    leftArrow.style.opacity = "0";
+    rightArrow.style.opacity = "0";
+  });
+
+  // Initialisierung
+  showSlide(currentIndex);
+  startAutoSlide();
+});
+
+</script> 

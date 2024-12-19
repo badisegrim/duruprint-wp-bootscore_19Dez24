@@ -1,0 +1,63 @@
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="slideBg_Gesch" style="background-image: url('https://duruprint.de/wp-content/uploads/2024/08/card1_background1-e1724184791550.jpg');"></div>
+          <div class="slideFg_Gesch" style="background-image: url('https://duruprint.de/wp-content/uploads/2024/08/card1.jpg');">Bild 1</div>
+        </div>
+        <div class="carousel-item">
+          <div class="slideBg_Gesch" style="background-image: url('https://duruprint.de/wp-content/uploads/2024/09/print-graphic-design-1310x873-2980285858-e1728308035380.jpeg');"></div>
+          <div class="slideFg_Gesch" style="background-image: url('https://duruprint.de/wp-content/uploads/2024/08/card1.jpg');">Bild 2</div>
+        </div>
+        <div class="carousel-item">
+          <div class="slideBg_Gesch" style="background-image: url('https://duruprint.de/wp-content/uploads/2024/09/cafe_menu_woodBG.jpg');"></div>
+          <div class="slideFg_Gesch" style="background-image: url('https://duruprint.de/wp-content/uploads/2024/09/cafe_menu.jpg');">Bild 3</div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+<style>
+  .carousel-inner {
+    height: 500px; /* Passe die Höhe an */
+  }
+  
+  .carousel-item {
+    height: 100%;
+  }
+  
+  .slideBg_Gesch {
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.7; /* Passe die Transparenz an */
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .slideFg_Gesch {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s ease-in-out;
+  }
+</style>
+<script>
+  $(document).ready(function(){
+    $('.carousel').on('slide.bs.carousel', function (e) {
+      // Hier kannst du individuelle Animationen für den Übergang hinzufügen
+      // z.B. für die Hintergrundbilder:
+      $(e.relatedTarget).find('.slideBg_Gesch').css('opacity', 1);
+      $(e.relatedTarget).prev().find('.slideBg_Gesch').css('opacity', 0.7);
+    });
+  });
+</script>
