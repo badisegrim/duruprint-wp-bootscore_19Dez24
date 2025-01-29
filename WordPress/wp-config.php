@@ -20,16 +20,16 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'dbs13499074' );
+define( 'DB_NAME', 'xxxx' );
 
 /** Database username */
-define( 'DB_USER', 'dbu3873806' );
+define( 'DB_USER', 'xxxx' );
 
 /** Database password */
-define( 'DB_PASSWORD', '89TaRuhN3EC!SpD' );
+define( 'DB_PASSWORD', 'xxxx' );
 
 /** Database hostname */
-define( 'DB_HOST', 'rdbms.strato.de' );
+define( 'DB_HOST', 'xxxx' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -89,7 +89,7 @@ define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-define('FORCE_SSL_ADMIN', false); /* Diese Einstellung verhindert, dass WordPress den Zugriff auf den Admin-Bereich über HTTPS erzwingt */
+define('FORCE_SSL_ADMIN', false); /* Diese Einstellung verhindert, dass WordPress den Zugriff auf den Admin-Bereich Ã¼ber HTTPS erzwingt */
 
 /* That's all, stop editing! Happy publishing. */
 
